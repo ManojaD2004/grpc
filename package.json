@@ -4,8 +4,14 @@
   "description": "grpc practice",
   "main": "src/server.ts",
   "scripts": {
+    "dev": "nodemon .",
+    "build": "npx tsc",
+    "start": "node ./build/server.js",
+    "server": "ts-node src/server.ts",
+    "client": "ts-node src/client.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ManojaD2004/grpc.git"
@@ -15,5 +21,15 @@
   "bugs": {
     "url": "https://github.com/ManojaD2004/grpc/issues"
   },
-  "homepage": "https://github.com/ManojaD2004/grpc#readme"
+  "homepage": "https://github.com/ManojaD2004/grpc#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.12.6",
+    "@grpc/proto-loader": "^0.7.13",
+    "grpc": "file:"
+  },
+  "devDependencies": {
+    "supertest": "^7.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
 }

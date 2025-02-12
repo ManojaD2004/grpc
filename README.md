@@ -1,1 +1,3 @@
-# grpc
+# gRPC
+
+gRPC practice repo!
