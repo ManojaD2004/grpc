@@ -34,13 +34,14 @@ async function main() {
     "localhost:5051",
     grpc.credentials.createInsecure()
   );
-
+  console.log("\nNormal Hello \n");
   const a = client.sayHello(
     { name: "Manoja" },
     function (err: null | Error, response: HelloResponse) {
       console.log("Greeting:", response);
     }
   );
+  console.log("\nStream Reply Hello \n");
   const b = client.sayHelloStreamReply({ name: "Manoja D" });
   b.on("data", function (msg: any) {
     console.log(msg);
@@ -55,11 +56,12 @@ async function main() {
     console.log(status);
   });
   await waitForNSeconds(5);
-  const c = client.sayHelloStreamResponse(function (error: any, stats: any) {
+  console.log("\nStream Response Hello \n");
+  const c = client.sayHelloStreamResponse(function (error: any, response: any) {
     if (error) {
       console.log(error);
     }
-    console.log("in", stats);
+    console.log("in", response);
   });
   for (let index = 0; index < 5; index++) {
     await waitForNSeconds(1);
@@ -67,6 +69,7 @@ async function main() {
     c.write({ name: "Manu Warr" });
   }
   c.end();
+  console.log("\nBi Direction Response Hello \n");
   const d = client.sayHelloStreamBi();
   d.on("data", function (msg: any) {
     console.log(msg);
