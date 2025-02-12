@@ -1,0 +1,19 @@
+{
+  "name": "grpc",
+  "version": "1.0.0",
+  "description": "grpc practice",
+  "main": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManojaD2004/grpc.git"
+  },
+  "author": "Manoja D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManojaD2004/grpc/issues"
+  },
+  "homepage": "https://github.com/ManojaD2004/grpc#readme"
+}
