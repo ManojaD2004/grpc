@@ -41,6 +41,7 @@ async function main() {
       console.log("Greeting:", response);
     }
   );
+  await waitForNSeconds(1);
   console.log("\nStream Reply Hello \n");
   const b = client.sayHelloStreamReply({ name: "Manoja D" });
   b.on("data", function (msg: any) {
@@ -56,12 +57,13 @@ async function main() {
     console.log(status);
   });
   await waitForNSeconds(5);
+  await waitForNSeconds(1);
   console.log("\nStream Response Hello \n");
   const c = client.sayHelloStreamResponse(function (error: any, response: any) {
     if (error) {
       console.log(error);
     }
-    console.log("in", response);
+    console.log("reply", response);
   });
   for (let index = 0; index < 5; index++) {
     await waitForNSeconds(1);
@@ -69,6 +71,7 @@ async function main() {
     c.write({ name: "Manu Warr" });
   }
   c.end();
+  await waitForNSeconds(1);
   console.log("\nBi Direction Response Hello \n");
   const d = client.sayHelloStreamBi();
   d.on("data", function (msg: any) {
